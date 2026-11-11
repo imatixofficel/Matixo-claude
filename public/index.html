@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#e7f0fb">
+  <title>Matixo | Claude</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/Vazirmatn-Black.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/i18n.js"></script>
+</head>
+<body>
+  <!-- آیکون‌ها: یک‌بار تعریف می‌شوند و با <use> استفاده می‌شوند -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 4.5-9 4.5-9-4.5L12 3Z"/><path d="m3 12 9 4.5 9-4.5"/><path d="m3 16.5 9 4.5 9-4.5"/></symbol>
+    <symbol id="i-cube" viewBox="0 0 24 24"><path d="M20.5 7.8 12 3 3.5 7.8v8.4L12 21l8.5-4.8V7.8Z"/><path d="m3.8 7.9 8.2 4.7 8.2-4.7"/><path d="M12 21v-8.4"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 14.5a1.6 1.6 0 0 0 .3 1.8l.1.1a1.9 1.9 0 1 1-2.7 2.7l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5v.3a1.9 1.9 0 1 1-3.8 0v-.2a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a1.9 1.9 0 1 1-2.7-2.7l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1h-.3a1.9 1.9 0 1 1 0-3.8h.2a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a1.9 1.9 0 1 1 2.7-2.7l.1.1a1.6 1.6 0 0 0 1.8.3h.1a1.6 1.6 0 0 0 1-1.5v-.3a1.9 1.9 0 1 1 3.8 0v.2a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a1.9 1.9 0 1 1 2.7 2.7l-.1.1a1.6 1.6 0 0 0-.3 1.8v.1a1.6 1.6 0 0 0 1.5 1h.3a1.9 1.9 0 1 1 0 3.8h-.2a1.6 1.6 0 0 0-1.5 1Z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5c1.5 0 2.9.4 4.1 1M21.5 12s-1.2 2.2-3.3 4M9.9 18.3c.7.1 1.4.2 2.1.2"/><path d="M4 4l16 16"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.3-3.6M4 4v4.5h4.5"/><path d="M4 13a8 8 0 0 0 14.3 3.6M20 20v-4.5h-4.5"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3 5 13.5h6L10 21l8-10.5h-6L13 3Z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5L8 5.5Z" style="fill:currentColor"/></symbol>
+    <symbol id="i-dots" viewBox="0 0 24 24"><circle cx="12" cy="5.5" r="1.5" style="fill:currentColor;stroke:none"/><circle cx="12" cy="12" r="1.5" style="fill:currentColor;stroke:none"/><circle cx="12" cy="18.5" r="1.5" style="fill:currentColor;stroke:none"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></symbol>
+    <symbol id="i-github" viewBox="0 0 16 16"><path style="fill:currentColor;stroke:none" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></symbol>
+    <symbol id="i-logo" viewBox="0 0 120 100"><path style="fill:currentColor;stroke:none" d="M12 77 29 20Q35 4 48 21L60 39 73 21Q86 4 92 20L108 77Q111 91 99 91Q90 91 86 79L76 48Q73 39 67 48L66 50Q60 60 54 50L52 48Q46 39 43 48L33 79Q29 91 19 91Q7 91 12 77Z"/><path class="logo-smile" d="M42 79Q60 96 78 79" style="fill:none;stroke:currentColor;stroke-width:8;stroke-linecap:round"/></symbol>
+  </svg>
+
+  <noscript><p style="padding:24px;font-family:sans-serif">Matixo needs JavaScript. / برای اجرای پنل Matixo جاوااسکریپت لازم است.</p></noscript>
+
+  <section id="splash" class="splash" aria-live="polite">
+    <div class="splash-tile"><svg class="logo" viewBox="0 0 120 100" role="img" aria-label="Matixo"><use href="#i-logo"/></svg></div>
+    <p class="splash-bismillah" data-i18n="splash.bismillah">به نام پروردگار</p>
+    <div class="splash-line"><i></i></div>
+    <span class="splash-caption">MATIXO · CLAUDE</span>
+  </section>
+
+  <div id="app" class="stage hidden">
+    <div class="frame">
+      <nav class="rail" aria-label="Main">
+        <button class="rail-logo" data-view="overview" data-i18n-aria="nav.overview" data-i18n-title="nav.overview" type="button"><svg class="logo" viewBox="0 0 120 100"><use href="#i-logo"/></svg></button>
+        <div class="rail-nav">
+          <button class="rail-btn active" data-view="overview" data-i18n-aria="nav.overview" data-i18n-title="nav.overview" type="button"><svg class="i"><use href="#i-grid"/></svg></button>
+          <button class="rail-btn" data-view="providers" data-i18n-aria="nav.providers" data-i18n-title="nav.providers" type="button"><svg class="i"><use href="#i-layers"/></svg></button>
+          <button class="rail-btn" data-view="models" data-i18n-aria="nav.models" data-i18n-title="nav.models" type="button"><svg class="i"><use href="#i-cube"/></svg></button>
+          <button class="rail-btn" data-view="settings" data-i18n-aria="nav.settings" data-i18n-title="nav.settings" type="button"><svg class="i"><use href="#i-gear"/></svg></button>
+        </div>
+        <a id="gh-rail" class="rail-btn rail-gh" href="https://github.com/imatixofficel" target="_blank" rel="noopener noreferrer" data-i18n-aria="nav.github" data-i18n-title="nav.github"><svg class="i"><use href="#i-github"/></svg></a>
+      </nav>
+
+      <main class="panel">
+        <header class="topbar">
+          <h1 id="page-title" data-i18n="nav.overview">نمای کلی</h1>
+          <div class="tools">
+            <label class="search">
+              <svg class="i"><use href="#i-search"/></svg>
+              <input id="search" type="search" autocomplete="off" spellcheck="false" data-i18n-placeholder="top.search" data-i18n-aria="top.search">
+            </label>
+            <div class="seg" role="group" data-i18n-aria="top.lang">
+              <button type="button" data-lang="fa" title="فارسی">FA</button>
+              <button type="button" data-lang="en" title="English">EN</button>
+            </div>
+            <a id="gh-top" class="round-btn" href="https://github.com/imatixofficel" target="_blank" rel="noopener noreferrer" data-i18n-aria="nav.github" data-i18n-title="nav.github"><svg class="i"><use href="#i-github"/></svg></a>
+            <div class="who" data-i18n-title="top.running">
+              <span class="who-avatar"><svg class="logo" viewBox="0 0 120 100"><use href="#i-logo"/></svg></span>
+              <span class="who-text"><b>Matixo</b><small data-i18n="top.status">درگاه محلی</small></span>
+              <i class="who-dot"></i>
+            </div>
+          </div>
+        </header>
+
+        <!-- نمای کلی -->
+        <section id="view-overview" class="view">
+          <div class="dash">
+            <div class="blk blk-chart">
+              <h2 class="sec" data-i18n="ov.traffic">ترافیک</h2>
+              <article class="card chart-card">
+                <div class="chart-head">
+                  <div>
+                    <div class="big" id="ch-total">۰</div>
+                    <div class="sub"><span data-i18n="ov.requests">درخواست‌ها</span> <span id="ch-avg" class="dim"></span></div>
+                  </div>
+                  <button class="dots" type="button" data-goto="settings" data-i18n-aria="nav.settings"><svg class="i"><use href="#i-dots"/></svg></button>
+                </div>
+                <div class="chart-wrap" id="chart-wrap">
+                  <svg id="chart" viewBox="0 0 300 110" role="img" aria-label="Requests chart"></svg>
+                  <div id="chart-tip" class="tip hidden"></div>
+                  <div id="chart-empty" class="chart-empty" data-i18n="ov.noTraffic">هنوز درخواستی ثبت نشده</div>
+                </div>
+                <div class="range" id="range" role="group">
+                  <button type="button" data-range="15m" data-i18n="range.15m">15m</button>
+                  <button type="button" data-range="1h" data-i18n="range.1h" class="on">1h</button>
+                  <button type="button" data-range="6h" data-i18n="range.6h">6h</button>
+                </div>
+              </article>
+            </div>
+
+            <div class="blk blk-assets">
+              <div class="sec-row">
+                <h2 class="sec" data-i18n="ov.setup">پیکربندی شما</h2>
+                <button class="icon-plain" type="button" data-goto="models" data-i18n-aria="ov.manage" data-i18n-title="ov.manage"><svg class="i"><use href="#i-sliders"/></svg></button>
+              </div>
+              <div class="assets">
+                <article class="asset lav">
+                  <div class="asset-top"><span class="asset-label" data-i18n="ov.provider">ارائه‌دهنده</span><button class="dots" type="button" data-goto="providers" data-i18n-aria="nav.providers"><svg class="i"><use href="#i-dots"/></svg></button></div>
+                  <strong class="asset-value" id="a-provider">OpenAI</strong>
+                  <span class="asset-sub" id="a-provider-sub">api.openai.com</span>
+                  <div class="asset-foot"><span class="tile" id="a-provider-tile">O</span><span class="delta" id="a-provider-chip"></span></div>
+                </article>
+                <article class="asset mint">
+                  <div class="asset-top"><span class="asset-label" data-i18n="ov.mainModel">مدل اصلی</span><button class="dots" type="button" data-goto="models" data-i18n-aria="nav.models"><svg class="i"><use href="#i-dots"/></svg></button></div>
+                  <strong class="asset-value" id="a-main">gpt-4o</strong>
+                  <span class="asset-sub" data-i18n="ov.mainSub">Sonnet / Opus</span>
+                  <div class="asset-foot"><span class="tile"><svg class="i"><use href="#i-cube"/></svg></span><span class="delta ok" data-i18n="ov.main">اصلی</span></div>
+                </article>
+                <article class="asset sand">
+                  <div class="asset-top"><span class="asset-label" data-i18n="ov.fastModel">مدل سریع</span><button class="dots" type="button" data-goto="models" data-i18n-aria="nav.models"><svg class="i"><use href="#i-dots"/></svg></button></div>
+                  <strong class="asset-value" id="a-fast">gpt-4o-mini</strong>
+                  <span class="asset-sub" data-i18n="ov.fastSub">Haiku / پس‌زمینه</span>
+                  <div class="asset-foot"><span class="tile"><svg class="i"><use href="#i-bolt"/></svg></span><span class="delta warn" data-i18n="ov.fast">سریع</span></div>
+                </article>
+              </div>
+            </div>
+
+            <div class="blk blk-table">
+              <div class="sec-row">
+                <h2 class="sec" id="headline">…</h2>
+                <div class="filters" id="filters" role="group">
+                  <button type="button" class="pill on" data-filter="all" data-i18n="filter.all">همه</button>
+                  <button type="button" class="pill" data-filter="errors" data-i18n="filter.errors">خطاها</button>
+                </div>
+              </div>
+              <div class="table-scroll">
+                <table class="tbl">
+                  <thead><tr>
+                    <th data-i18n="tbl.model">مدل</th>
+                    <th data-i18n="tbl.status">وضعیت</th>
+                    <th class="hide-sm" data-i18n="tbl.latency">تأخیر</th>
+                    <th class="hide-sm" data-i18n="tbl.tokens">توکن</th>
+                    <th data-i18n="tbl.time">زمان</th>
+                  </tr></thead>
+                  <tbody id="req-body"></tbody>
+                </table>
+              </div>
+              <p id="req-empty" class="empty hidden" data-i18n="tbl.empty">درخواست‌های Claude Code اینجا نمایش داده می‌شود.</p>
+            </div>
+
+            <div class="blk blk-promo">
+              <article class="promo">
+                <h3><span data-i18n="promo.pre"></span> <span class="chip-outline" data-i18n="promo.chip">هر</span> <span data-i18n="promo.post">مدلی را در Claude Code اجرا کن!</span></h3>
+                <p data-i18n="promo.text">…</p>
+                <button id="launch-btn" class="btn btn-blue" type="button"><svg class="i"><use href="#i-play"/></svg><span data-i18n="promo.btn">اجرای Claude Code</span></button>
+                <small class="hint" data-i18n="promo.hint"></small>
+                <i class="ghost g1"></i><i class="ghost g2"></i>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ارائه‌دهنده‌ها -->
+        <section id="view-providers" class="view hidden">
+          <div class="intro">
+            <p class="lead" data-i18n="prov.sub"></p>
+            <button id="save-providers" class="btn btn-dark" type="button" data-i18n="prov.save">ذخیره تغییرات</button>
+          </div>
+          <div id="provider-list" class="prov-grid"></div>
+          <p id="prov-empty" class="empty hidden"></p>
+        </section>
+
+        <!-- مدل‌ها -->
+        <section id="view-models" class="view hidden">
+          <div class="intro">
+            <p class="lead" data-i18n="models.sub"></p>
+          </div>
+          <div class="card form-card">
+            <label class="field"><span data-i18n="models.provider">ارائه‌دهنده فعال</span><select id="model-provider"></select></label>
+            <div class="form-two">
+              <label class="field"><span data-i18n="models.main">مدل اصلی</span><input id="main-model" list="model-options" autocomplete="off" spellcheck="false"></label>
+              <label class="field"><span data-i18n="models.fast">مدل سریع</span><input id="fast-model" list="model-options" autocomplete="off" spellcheck="false"></label>
+            </div>
+            <datalist id="model-options"></datalist>
+            <div class="actions">
+              <button id="fetch-models" class="btn btn-soft" type="button"><svg class="i"><use href="#i-refresh"/></svg><span data-i18n="models.fetch">دریافت فهرست زنده</span></button>
+              <button id="save-models" class="btn btn-dark" type="button" data-i18n="models.save">ذخیره مدل‌ها</button>
+            </div>
+          </div>
+          <div class="note" data-i18n="models.note"></div>
+        </section>
+
+        <!-- تنظیمات -->
+        <section id="view-settings" class="view hidden">
+          <div class="intro">
+            <p class="lead" data-i18n="set.sub"></p>
+            <button id="save-settings" class="btn btn-dark" type="button" data-i18n="set.save">ذخیره تنظیمات</button>
+          </div>
+          <div class="settings-grid">
+            <div class="card form-card">
+              <div class="field"><span data-i18n="set.language">زبان</span>
+                <div class="seg seg-wide" role="group"><button type="button" data-lang="fa">فارسی</button><button type="button" data-lang="en">English</button></div>
+              </div>
+              <div class="form-two">
+                <label class="field"><span data-i18n="set.port">پورت</span><input id="port-input" type="number" min="1024" max="65535" inputmode="numeric"></label>
+                <label class="field"><span data-i18n="set.host">میزبان</span><input value="127.0.0.1" disabled></label>
+              </div>
+              <label class="field"><span data-i18n="set.token">توکن</span><input value="matixo-local" disabled><small data-i18n="set.tokenNote"></small></label>
+              <button id="reset-btn" class="btn btn-danger" type="button" data-i18n="set.reset">بازنشانی تنظیمات</button>
+            </div>
+            <div class="stack">
+              <div class="card form-card">
+                <h3 class="card-title" data-i18n="set.connect">اتصال دستی</h3>
+                <p class="muted" data-i18n="set.connectText"></p>
+                <div class="code"><code>eval "$(matixo env)"</code><button class="copy" type="button" data-copy='eval "$(matixo env)"' data-i18n-aria="set.copy" data-i18n-title="set.copy"><svg class="i"><use href="#i-copy"/></svg></button></div>
+                <div class="code"><code>matixo env --shell powershell | Invoke-Expression</code><button class="copy" type="button" data-copy="matixo env --shell powershell | Invoke-Expression" data-i18n-aria="set.copy" data-i18n-title="set.copy"><svg class="i"><use href="#i-copy"/></svg></button></div>
+              </div>
+              <div class="card sec-card">
+                <h3 class="card-title"><svg class="i"><use href="#i-lock"/></svg> <span data-i18n="set.secTitle">امنیت</span></h3>
+                <p class="muted" data-i18n="set.secText"></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="foot">
+          <span data-i18n="foot.made"></span>
+          <span class="dot-sep">·</span>
+          <a href="https://github.com/imatixofficel" target="_blank" rel="noopener noreferrer">github.com/imatixofficel</a>
+          <span class="dot-sep">·</span>
+          <span id="version" dir="ltr">v—</span>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <button class="modal-x" id="modal-close" type="button" data-i18n-aria="close"><svg class="i"><use href="#i-x"/></svg></button>
+      <span class="overline" data-i18n="modal.overline">اتصال جدید</span>
+      <h3 id="modal-title" data-i18n="modal.title">افزودن ارائه‌دهنده</h3>
+      <label class="field"><span data-i18n="modal.service">سرویس</span><select id="new-provider"></select></label>
+      <label class="field" id="new-name-wrap"><span data-i18n="modal.name">نام</span><input id="new-name" maxlength="40" autocomplete="off" data-i18n-placeholder="modal.namePh"></label>
+      <label class="field"><span data-i18n="prov.apiKey">API Key</span><input id="new-key" type="password" autocomplete="off" spellcheck="false" data-i18n-placeholder="prov.keyPh"></label>
+      <label class="field"><span data-i18n="prov.baseUrl">Base URL</span><input id="new-url" placeholder="https://api.example.com/v1" spellcheck="false" autocomplete="off"></label>
+      <div class="modal-actions">
+        <span class="status" data-test-status="modal" aria-live="polite" data-i18n="modal.hint"></span>
+        <button id="test-new" class="btn btn-soft" type="button" data-i18n="prov.test">تست اتصال</button>
+        <button id="add-new" class="btn btn-dark" type="button" data-i18n="modal.save">ذخیره</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="confirm" class="modal hidden" role="alertdialog" aria-modal="true" aria-labelledby="confirm-text">
+    <div class="modal-card modal-sm">
+      <p id="confirm-text"></p>
+      <div class="modal-actions end">
+        <button id="confirm-no" class="btn btn-soft" type="button" data-i18n="cancel">انصراف</button>
+        <button id="confirm-yes" class="btn btn-danger" type="button" data-i18n="confirm">تأیید</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>

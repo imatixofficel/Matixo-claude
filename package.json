@@ -1,0 +1,55 @@
+{
+  "name": "matixo-claude",
+  "version": "1.1.0",
+  "description": "Local multi-provider gateway and bilingual (FA/EN) dashboard for Claude Code",
+  "type": "module",
+  "bin": {
+    "matixo": "./bin/matixo.js"
+  },
+  "scripts": {
+    "start": "node ./bin/matixo.js start",
+    "dev": "node --watch ./bin/matixo.js start",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "keywords": [
+    "claude-code",
+    "anthropic",
+    "openai",
+    "proxy",
+    "matixo",
+    "persian",
+    "rtl"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "commander": "^12.1.0",
+    "express": "^4.21.2",
+    "open": "^10.1.0",
+    "ora": "^8.2.0"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "public/",
+    "README.md",
+    "README.en.md",
+    "LICENSE",
+    "matixo.sh"
+  ],
+  "homepage": "https://github.com/imatixofficel/matixo-claude#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imatixofficel/matixo-claude.git"
+  },
+  "bugs": {
+    "url": "https://github.com/imatixofficel/matixo-claude/issues"
+  },
+  "author": "Matixo (https://github.com/imatixofficel)",
+  "devDependencies": {
+    "jsdom": "^25.0.1"
+  }
+}
